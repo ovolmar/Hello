@@ -5,7 +5,7 @@ orbs:
 jobs:
   build-and-test: 
     docker:
-      - image: cimg/python:3.10.2
+      - image: cimg/python:3.10.5
    
     steps:
       - checkout
@@ -17,6 +17,13 @@ jobs:
           command: |
             make  install
             make lint
+
+      - run: 
+          name: Running adhoc
+          command: |
+            echo "This is working fine."
+            touch fileX.log
+            rm -fv file*.log
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
