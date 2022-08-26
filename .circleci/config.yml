@@ -17,7 +17,7 @@ jobs:
           command: |
             make  install
             make lint
-            echo $USER_NAME
+            echo "YOU ARE --> ${USER_NAME}"
 
       - run: 
           name: Running adhoc
