@@ -18,7 +18,7 @@ jobs:
           command: |
             make  install
             make lint
-            echo "Mission Ctrl:-->01" ~/flow.log
+            echo "Mission Ctrl:-->01" ~/flow.html
             echo "YOU ARE --> ${USER_NAME}"
   lift-wheels:
     working_directory: ~/
