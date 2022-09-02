@@ -4,6 +4,7 @@ orbs:
 
 jobs:
   build-and-test: 
+    working_dir: ~/
     docker:
       - image: cimg/python:3.10.5
    
@@ -23,8 +24,13 @@ jobs:
           name: Running adhoc
           command: |
             echo "This is working fine."
-            touch fileX.log
-            rm -fv file*.log
+            touch art-1
+            echo "Temp: 35 deg" >art-t
+      - store_artifacts:
+            path: ~/art-1
+            destination: artifact-file
+      - store_artifacts:
+            path: ~/artifacts
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
