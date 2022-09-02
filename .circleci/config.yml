@@ -18,19 +18,24 @@ jobs:
           command: |
             make  install
             make lint
+            echo "Mission Ctrl:-->01" ~/flow.log
             echo "YOU ARE --> ${USER_NAME}"
-
+  lift-wheels:
+    working_directory: ~/
+    docker:
+      - image: cimg/base:2021.04
+    steps:
       - run: 
           name: Running adhoc
           command: |
             echo "This is working fine."
             touch art-1
             echo "Temp: 35 deg" >art-t
-#       - store_artifacts:
-#             path: ~/art-1
-#             destination: artifact-file
-#       - store_artifacts:
-#             path: ~/artifacts
+      - store_artifacts:
+            path: ~/art-1
+            destination: artifact-file
+      - store_artifacts:
+            path: ~/artifacts
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
