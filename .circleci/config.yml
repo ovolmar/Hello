@@ -4,12 +4,12 @@ orbs:
 
 jobs:
   build-and-test: 
-    working_directory: ~/
+   # working_directory: ~/
     docker:
       - image: cimg/python:3.10.5
    
     steps:
-      #- checkout
+      - checkout
       - python/install-packages:
           pkg-manager: pip
           
@@ -26,11 +26,11 @@ jobs:
             echo "This is working fine."
             touch art-1
             echo "Temp: 35 deg" >art-t
-      - store_artifacts:
-            path: ~/art-1
-            destination: artifact-file
-      - store_artifacts:
-            path: ~/artifacts
+#       - store_artifacts:
+#             path: ~/art-1
+#             destination: artifact-file
+#       - store_artifacts:
+#             path: ~/artifacts
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
