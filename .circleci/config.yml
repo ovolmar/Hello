@@ -21,7 +21,7 @@ jobs:
             echo "Mission Ctrl:-->01" ~/flow.html
             echo "YOU ARE --> ${USER_NAME}"
   lift-wheels:
-    working_directory: ~/
+    working_directory: /tmp
     docker:
       - image: cimg/base:2021.04
     steps:
@@ -32,10 +32,10 @@ jobs:
             touch art-1
             echo "Temp: 35 deg" >art-t
       - store_artifacts:
-            path: ~/art-1
+            path: /tmp/art-1
             destination: artifact-file
       - store_artifacts:
-            path: ~/artifacts
+            path: /tmp/artifacts
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
